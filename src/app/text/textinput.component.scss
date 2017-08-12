@@ -1,0 +1,62 @@
+@import '../../../node_modules/@angular/material/theming';
+@import "../../styles";
+
+@include mat-core();
+
+$input-message-color: mat-color($mat-teal, 800);
+$output-message-color: mat-color($mat-teal, 300);
+
+.message {
+  color: white;
+  padding: 10px;
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
+.input-message {
+  @extend .message;
+  background: $input-message-color
+}
+
+.output-message {
+  @extend .message;
+  background: $output-message-color
+}
+
+.fill-remaining-space {
+  flex: 1 1 auto;
+}
+
+#sendButton {
+  background: mat-color($app-accent);
+  color: white;
+}
+
+.message-zone {
+  background: white;
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 500px;
+  padding: 10px;
+  border: 3px solid mat-color($app-primary);
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+md-select {
+  font-size: medium;
+  align-self: flex-end;
+  margin-bottom: 5px;
+}
+
+md-input-container {
+  font-size: medium;
+  align-self: flex-end;
+  margin-bottom: 1px;
+  margin-right: 10px;
+  height: inherit;
+}

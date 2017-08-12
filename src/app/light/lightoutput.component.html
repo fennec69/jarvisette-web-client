@@ -1,0 +1,33 @@
+<div>
+  <button md-fab [class.light-on]="isConnected && isOn" [class.light-off]="isConnected && !isOn"
+          [class.light-disconnected]="!isConnected"
+          (click)="toggleSettings()">
+    <md-icon>lightbulb_outline</md-icon>
+  </button>
+
+  <md-card *ngIf="showSettings" style="margin: 30px">
+    <table class="full-width" cellspacing="0">
+      <tr>
+        <td>
+          <md-input-container>
+            <input mdInput placeholder="Url" [(ngModel)]="url">
+          </md-input-container>
+        </td>
+        <td>
+          <md-input-container>
+            <input mdInput placeholder="UUID" [(ngModel)]="inputUuid">
+          </md-input-container>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <button *ngIf="!isConnected" type="button" class="btn btn-success" (click)="onConnectClicked()">Connect
+          </button>
+          <button *ngIf="isConnected" type="button" class="btn btn-danger" (click)="onDisconnectClicked()">Disconnect
+          </button>
+        </td>
+      </tr>
+    </table>
+  </md-card>
+</div>
+
