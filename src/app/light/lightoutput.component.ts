@@ -2,6 +2,7 @@
  * Created by farid on 07/08/2017.
  */
 import {Component, Input, OnInit} from '@angular/core';
+import {Message} from "../text/textinput.component";
 import {MdSnackBar} from "@angular/material";
 
 @Component({
@@ -18,8 +19,7 @@ export class LightOutputComponent implements OnInit {
   @Input() inputUuid: string;
   showSettings: boolean;
 
-  constructor(public snackBar: MdSnackBar) {
-  }
+  constructor(public snackBar: MdSnackBar) {}
 
   ngOnInit(): void {
     this.isOn = false;
@@ -55,7 +55,7 @@ export class LightOutputComponent implements OnInit {
     };
     this.ws.onmessage = (ev: MessageEvent) => {
       console.log(ev.data);
-      let inputMessage: LightInputMessageDto = JSON.parse(ev.data);
+      let inputMessage : LightInputMessageDto = JSON.parse(ev.data);
       this.isOn = inputMessage.power;
     };
   }

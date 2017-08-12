@@ -7,20 +7,19 @@ import {MdSnackBar} from "@angular/material";
 @Component({
   selector: 'text-input',
   templateUrl: "./textinput.component.html",
-  styleUrls: ["./textinput.component.scss"]
+  styleUrls:["./textinput.component.scss"]
 })
 export class TextInputComponent implements OnInit {
   @Input() config: TextInputModel;
   ws: WebSocket;
   connected = false;
-  messages: Message[] = [];
+  messages :Message[] = [];
   outputTypes = [
     "text",
     "audio"
   ];
 
-  constructor(public snackBar: MdSnackBar) {
-  }
+  constructor(public snackBar: MdSnackBar) {}
 
   ngOnInit(): void {
     this.config = {
@@ -38,7 +37,7 @@ export class TextInputComponent implements OnInit {
     this.ws.onopen = (ev: Event) => {
       this.connected = true;
       let registerCommand = {
-        type: 'REGISTERING',
+        type :'REGISTERING',
         message: {
           services: ["text"]
         }
@@ -54,7 +53,7 @@ export class TextInputComponent implements OnInit {
       this.showMessage(this.config.inputUuid + " connection error");
     };
     this.ws.onmessage = (ev: MessageEvent) => {
-      let inputMessage: InputMessageDto = JSON.parse(ev.data);
+      let inputMessage : InputMessageDto = JSON.parse(ev.data);
       let message = new Message();
       message.in = true;
       message.message = inputMessage.message;
@@ -74,14 +73,14 @@ export class TextInputComponent implements OnInit {
 
   sendMessage(): void {
     let inputCommand = {
-      type: "TEXT_COMMAND",
+      type :"TEXT_COMMAND",
       message: {
         responseUUID: this.config.outputUuid,
         responseType: this.config.outputType,
         text: this.config.text
       }
     };
-    if (this.connected) {
+    if(this.connected) {
       this.ws.send(JSON.stringify(inputCommand));
       let message = new Message();
       message.in = false;

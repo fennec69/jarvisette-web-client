@@ -6,12 +6,7 @@ import {AppComponent} from './app.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {TextInputComponent} from './text/textinput.component';
 import {
-  MdButtonModule,
-  MdCardModule,
-  MdIconModule,
-  MdInputModule,
-  MdSelectModule,
-  MdSnackBarModule,
+  MdButtonModule, MdCardModule, MdIconModule, MdInputModule, MdSelectModule, MdSnackBarModule,
   MdToolbarModule
 } from '@angular/material';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";

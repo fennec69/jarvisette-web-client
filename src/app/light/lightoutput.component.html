@@ -21,10 +21,8 @@
       </tr>
       <tr>
         <td>
-          <button *ngIf="!isConnected" type="button" class="btn btn-success" (click)="onConnectClicked()">Connect
-          </button>
-          <button *ngIf="isConnected" type="button" class="btn btn-danger" (click)="onDisconnectClicked()">Disconnect
-          </button>
+          <button *ngIf="!isConnected" type="button" class="btn btn-success" (click)="onConnectClicked()">Connect</button>
+          <button *ngIf="isConnected" type="button" class="btn btn-danger" (click)="onDisconnectClicked()">Disconnect</button>
         </td>
       </tr>
     </table>
