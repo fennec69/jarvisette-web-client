@@ -1,48 +1,64 @@
-<md-toolbar color="primary" class="dark-theme">
-  <md-input-container>
-    <input mdInput [(ngModel)]="config.url" placeholder="URL"/>
-  </md-input-container>
-  <md-input-container>
-    <input mdInput [(ngModel)]="config.inputUuid" placeholder="UUID"/>
-  </md-input-container>
-  <md-input-container>
-    <input mdInput [(ngModel)]="config.outputUuid" placeholder="Output Uuid"/>
-  </md-input-container>
+<md-card class="primary-background">
 
-  <md-select placeholder="Output type" [(ngModel)]="config.outputType">
-    <md-option *ngFor="let outputType of outputTypes" [value]="outputType">
-      {{outputType}}
-    </md-option>
-  </md-select>
-
-  <span class="fill-remaining-space"></span>
-
-  <button *ngIf="!connected" type="button" class="btn btn-success" (click)="onConnectClicked()">Connect</button>
-  <button *ngIf="connected" type="button" class="btn btn-danger" (click)="onDisconnectClicked()">Disconnect</button>
-</md-toolbar>
-
-<div #scrollMe [scrollTop]="scrollMe.scrollHeight" class="message-zone">
-  <div *ngFor="let message of messages" class="row">
-    <md-card class="pull-right" [class.input-message]="message.in"
-             [class.output-message]="!message.in">
-      {{message.message}}
-    </md-card>
+  <div style="width: 100%; margin-bottom: 10px">
+    <button *ngIf="!connected" style="float: right" type="button" class="btn btn-success" (click)="onConnectClicked()">Connect</button>
+    <button *ngIf="connected" style="float: right" type="button" class="btn btn-danger" (click)="onDisconnectClicked()">Disconnect</button>
+    <button md-button (click)="showSettings = !showSettings">
+      <md-icon class="dark-theme">settings</md-icon>
+    </button>
   </div>
-</div>
 
-<div style="padding-left: 10px; padding-right: 10px">
-  <table class="full-width">
-    <tr>
-      <td style="width: 98%;">
-        <input class="form-control" [(ngModel)]="config.text" (keyup.enter)="sendMessage()"/>
-      </td>
-      <td class="full-width"></td>
-      <td style="margin-left: 20px">
-        <button id="sendButton" (click)="sendMessage()" md-fab>
-          <md-icon>send</md-icon>
-        </button>
-      </td>
-    </tr>
-  </table>
+  <md-grid-list *ngIf="showSettings" class="dark-theme" cols="2" rowHeight="70px">
+    <md-grid-tile [colspan]="2" [rowspan]="1">
+      <md-input-container>
+        <input mdInput [(ngModel)]="config.url" placeholder="URL"/>
+      </md-input-container>
+    </md-grid-tile>
 
-</div>
+    <md-grid-tile [colspan]="1" [rowspan]="1">
+      <md-input-container>
+        <input mdInput [(ngModel)]="config.inputUuid" placeholder="UUID"/>
+      </md-input-container>
+    </md-grid-tile>
+
+    <md-grid-tile [colspan]="1" [rowspan]="1">
+      <md-input-container>
+        <input mdInput [(ngModel)]="config.outputUuid" placeholder="Output Uuid"/>
+      </md-input-container>
+    </md-grid-tile>
+
+    <md-grid-tile [colspan]="2" [rowspan]="1">
+      <md-select style="width: 100%" placeholder="Output type" [(ngModel)]="config.outputType">
+        <md-option *ngFor="let outputType of outputTypes" [value]="outputType">
+          {{outputType}}
+        </md-option>
+      </md-select>
+    </md-grid-tile>
+  </md-grid-list>
+
+  <div #scrollMe [scrollTop]="scrollMe.scrollHeight" class="message-zone">
+    <div *ngFor="let message of messages" class="row">
+      <md-card class="pull-right" [class.input-message]="message.in"
+               [class.output-message]="!message.in">
+        {{message.message}}
+      </md-card>
+    </div>
+  </div>
+
+  <div style="padding-left: 10px; padding-right: 10px">
+    <table class="full-width">
+      <tr>
+        <td style="width: 98%;">
+          <input class="form-control" [(ngModel)]="config.text" (keyup.enter)="sendMessage()"/>
+        </td>
+        <td class="full-width"></td>
+        <td style="margin-left: 20px">
+          <button id="sendButton" (click)="sendMessage()" md-fab>
+            <md-icon>send</md-icon>
+          </button>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+</md-card>

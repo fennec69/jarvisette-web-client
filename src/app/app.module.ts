@@ -6,11 +6,12 @@ import {AppComponent} from './app.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {TextInputComponent} from './text/textinput.component';
 import {
-  MdButtonModule, MdCardModule, MdIconModule, MdInputModule, MdSelectModule, MdSnackBarModule,
+  MdButtonModule, MdCardModule, MdGridListModule, MdIconModule, MdInputModule, MdSelectModule, MdSnackBarModule,
   MdToolbarModule
 } from '@angular/material';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {LightOutputComponent} from "./light/lightoutput.component";
+import {AreaComponent} from "./area/area.component";
 
 @NgModule({
   imports: [NgbModule.forRoot(),
@@ -21,10 +22,11 @@ import {LightOutputComponent} from "./light/lightoutput.component";
     MdSelectModule,
     MdInputModule,
     MdCardModule,
+    MdGridListModule,
     MdIconModule,
     MdSnackBarModule,
     MdButtonModule],
-  declarations: [AppComponent, TextInputComponent, LightOutputComponent],
+  declarations: [AppComponent, TextInputComponent, LightOutputComponent, AreaComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {

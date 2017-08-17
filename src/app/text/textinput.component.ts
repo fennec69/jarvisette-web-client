@@ -13,6 +13,7 @@ export class TextInputComponent implements OnInit {
   @Input() config: TextInputModel;
   ws: WebSocket;
   connected = false;
+  showSettings = true;
   messages :Message[] = [];
   outputTypes = [
     "text",

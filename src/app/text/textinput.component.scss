@@ -35,11 +35,11 @@ flex: 1 1 auto;
   background: white;
   overflow-y: auto;
   overflow-x: hidden;
-  height: 500px;
+  height: 300px;
   padding: 10px;
-  border: 3px solid mat-color($app-primary);
   margin-top:10px;
   margin-bottom:10px;
+  width: 100%;
 }
 .full-width {
   width: 100%;
@@ -48,7 +48,6 @@ flex: 1 1 auto;
 md-select {
   font-size: medium;
   align-self: flex-end;
-  margin-bottom: 5px;
 }
 
 md-input-container {
@@ -56,5 +55,5 @@ md-input-container {
   align-self: flex-end;
   margin-bottom: 1px;
   margin-right: 10px;
-  height: inherit;
+  width: 100%;
 }
