@@ -1,10 +1,19 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {LightService} from "./light/light.service";
+import {Light} from "./light/light";
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html'
+  templateUrl: './app.component.html',
+  providers: [LightService]
 })
 
-export class AppComponent  {
+export class AppComponent implements OnInit {
+  lights :Light[];
 
+  constructor(private lightService: LightService) {}
+
+  ngOnInit(): void {
+    this.lights = this.lightService.getLights();
+  }
 }

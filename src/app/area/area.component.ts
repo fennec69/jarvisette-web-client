@@ -4,6 +4,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Message} from "../text/textinput.component";
 import {MdSnackBar} from "@angular/material";
+import {Light} from "../light/light";
 
 @Component({
   selector: 'area-zone',
@@ -12,19 +13,10 @@ import {MdSnackBar} from "@angular/material";
 })
 export class AreaComponent {
 
-  lights :[Light] = [
-    {bottom : "100%", right: "100%"},
-    {bottom : "0%", right: "100%"},
-    {bottom : "0%", right: "0%"},
-    {bottom : "100%", right: "0%"},
-    {bottom : "50%", right: "50%"}
-    ];
+  @Input() lights :Light[];
+
 }
 
-class Light {
-  bottom :string;
-  right :string;
-}
 
 
 
