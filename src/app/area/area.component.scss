@@ -4,7 +4,7 @@
 .anchor {
   position: absolute;
   bottom: 0%;
-  left: 0%;
+  right: 0%;
 }
 
 .container {
@@ -15,6 +15,13 @@
 
 light-output {
   position: relative;
-  right: 50%;
+  left: 50%;
+  bottom: -1.5em
+}
+
+
+micro {
+  position: relative;
+  left: 50%;
   bottom: -1.5em
 }

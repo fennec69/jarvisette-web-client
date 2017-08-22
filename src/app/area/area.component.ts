@@ -5,6 +5,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Message} from "../text/textinput.component";
 import {MdSnackBar} from "@angular/material";
 import {Light} from "../light/light";
+import {Micro} from "../micro/micro";
 
 @Component({
   selector: 'area-zone',
@@ -14,6 +15,7 @@ import {Light} from "../light/light";
 export class AreaComponent {
 
   @Input() lights :Light[];
+  @Input() micros :Micro[];
 
 }
 

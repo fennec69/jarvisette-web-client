@@ -1,7 +1,10 @@
 <md-card class="container primary-background">
   <div class="container primary-background">
-      <div *ngFor="let light of lights" class="anchor" [style.bottom]="light.bottom" [style.left]="light.left">
+      <div *ngFor="let light of lights" class="anchor" [style.bottom]="light.bottom" [style.right]="light.left">
         <light-output [light]="light"></light-output>
       </div>
+    <div *ngFor="let micro of micros" class="anchor" [style.bottom]="micro.bottom" [style.left]="micro.left">
+      <micro [micro]="micro"></micro>
+    </div>
   </div>
 </md-card>

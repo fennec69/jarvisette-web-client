@@ -3,14 +3,20 @@
     <text-input></text-input>
   </div>
   <div style="margin: 20px 20px 20px 20px; width: 500px; height: 500px">
-    <area-zone [lights]= "lights"></area-zone>
+    <area-zone [lights]= "lights" [micros]="micros"></area-zone>
   </div>
   <div  style="margin: 20px 20px 20px 20px;" class="col">
     <button md-fab (click)="addLight()" style="color: white; margin-bottom: 10px">
-      <md-icon>add</md-icon>
+      <md-icon>add</md-icon>Li
     </button>
-    <div  *ngFor="let light of lights"  style="margin-bottom: 20px">
+    <button md-fab (click)="addMicro()" style="color: white; margin-bottom: 10px">
+      <md-icon>add</md-icon>Mi
+    </button>
+    <div class="dark-theme" *ngFor="let light of lights"  style="margin-bottom: 20px">
       <light-settings [light] = light></light-settings>
+    </div>
+    <div  *ngFor="let micro of micros"  style="margin-bottom: 20px">
+      <micro-settings [micro] = micro></micro-settings>
     </div>
   </div>
 </div>

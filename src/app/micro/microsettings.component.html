@@ -1,0 +1,40 @@
+<div>
+  <md-card>
+    <h3 style="margin-bottom: 10px"><md-icon>mic</md-icon>Micro</h3>
+    <table class="full-width" cellspacing="0">
+      <tr>
+        <td>
+          <md-input-container>
+            <input mdInput placeholder="Url" [(ngModel)]="micro.url">
+          </md-input-container>
+        </td>
+        <td>
+          <md-input-container>
+            <input mdInput placeholder="UUID" [(ngModel)]="micro.inputUuid">
+          </md-input-container>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <md-input-container>
+            <input mdInput placeholder="X position" [(ngModel)]="micro.left">
+          </md-input-container>
+        </td>
+        <td>
+          <md-input-container>
+            <input mdInput placeholder="Y position" [(ngModel)]="micro.bottom">
+          </md-input-container>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <button *ngIf="!micro.isConnected" type="button" class="btn btn-success" (click)="onConnectClicked()">Connect</button>
+          <button *ngIf="micro.isConnected" type="button" class="btn btn-danger" (click)="onDisconnectClicked()">Disconnect</button>
+        </td>
+        <td>
+          <button *ngIf="micro.isConnected" type="button" class="btn btn-info" (click)="sendLocation()">Send location</button>
+        </td>
+      </tr>
+    </table>
+  </md-card>
+</div>

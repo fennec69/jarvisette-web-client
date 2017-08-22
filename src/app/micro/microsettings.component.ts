@@ -1,43 +1,41 @@
 import {Component, Input} from "@angular/core";
-import {Light} from "./light";
+import {Micro} from "./micro";
 
 @Component({
-  selector: 'light-settings',
-  templateUrl: "./lightsettings.component.html",
-  styleUrls: ["./lightsettings.component.scss"]
+  selector: 'micro-settings',
+  templateUrl: "./microsettings.component.html",
+  styleUrls: ["./microsettings.component.scss"]
 })
-export class LightSettingsComponent {
+export class MicroSettingsComponent {
 
   ws: WebSocket;
-  @Input() light: Light;
+  @Input() micro: Micro;
 
   constructor(public snackBar: MdSnackBar) {
   }
 
   onConnectClicked(): void {
-    this.ws = new WebSocket(this.light.url + "/" + this.light.inputUuid);
+    this.ws = new WebSocket(this.micro.url + "/" + this.micro.inputUuid);
 
     this.ws.onopen = (ev: Event) => {
-      this.light.isConnected = true;
+      this.micro.isConnected = true;
       let registerCommand = {
         type: 'REGISTERING',
         message: {
-          services: ["light"]
+          services: ["micro"]
         }
       };
       this.ws.send(JSON.stringify(registerCommand));
       console.log("connected");
     };
     this.ws.onerror = (ev: ErrorEvent) => {
-      this.showMessage(this.light.inputUuid + " connection error");
+      this.showMessage(this.micro.inputUuid + " connection error");
     };
     this.ws.onclose = (ev: CloseEvent) => {
-      this.light.isConnected = false;
+      this.micro.isConnected = false;
     };
     this.ws.onmessage = (ev: MessageEvent) => {
       console.log(ev.data);
-      let inputMessage: LightInputMessageDto = JSON.parse(ev.data);
-      this.light.isOn = inputMessage.power;
     };
   }
 
@@ -56,7 +54,7 @@ export class LightSettingsComponent {
       }
     };
     this.ws.send(JSON.stringify(locationCommand));
-    this.showMessage(this.light.inputUuid + " location sent");
+    this.showMessage(this.micro.inputUuid + " location sent");
   }
 
   showMessage(message: string) {
@@ -68,7 +66,3 @@ export class LightSettingsComponent {
 
 import {MdSnackBar} from "@angular/material";
 
-export class LightInputMessageDto {
-  action: string;
-  power: boolean;
-}

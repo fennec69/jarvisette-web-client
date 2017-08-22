@@ -1,0 +1,16 @@
+@import '../../../node_modules/@angular/material/theming';
+@include mat-core();
+
+.connected {
+  background: mat-color($mat-green, 500);
+  color: white;
+}
+
+.disconnected {
+  background: mat-color($mat-red, 500);
+  color: white;
+}
+
+.full-width {
+  width: 100%;
+}

@@ -1,5 +1,5 @@
 
-<div class="dark-theme">
+<div>
   <md-card>
     <h3 style="margin-bottom: 10px"><md-icon>lightbulb_outline</md-icon> Light</h3>
     <table class="full-width" cellspacing="0">
@@ -31,6 +31,9 @@
         <td>
           <button *ngIf="!light.isConnected" type="button" class="btn btn-success" (click)="onConnectClicked()">Connect</button>
           <button *ngIf="light.isConnected" type="button" class="btn btn-danger" (click)="onDisconnectClicked()">Disconnect</button>
+        </td>
+        <td>
+          <button *ngIf="light.isConnected" type="button" class="btn btn-info" (click)="sendLocation()">Send location</button>
         </td>
       </tr>
     </table>

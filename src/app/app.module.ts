@@ -19,6 +19,8 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {LightOutputComponent} from "./light/lightoutput.component";
 import {AreaComponent} from "./area/area.component";
 import {LightSettingsComponent} from "./light/lightsettings.component";
+import {MicroSettingsComponent} from "./micro/microsettings.component";
+import {MicroComponent} from "./micro/micro.component";
 
 @NgModule({
   imports: [NgbModule.forRoot(),
@@ -33,7 +35,7 @@ import {LightSettingsComponent} from "./light/lightsettings.component";
     MdIconModule,
     MdSnackBarModule,
     MdButtonModule],
-  declarations: [AppComponent, TextInputComponent, LightOutputComponent, LightSettingsComponent, AreaComponent],
+  declarations: [AppComponent, TextInputComponent, LightOutputComponent, LightSettingsComponent, MicroComponent, MicroSettingsComponent, AreaComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {
