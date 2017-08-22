@@ -16,4 +16,9 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.lights = this.lightService.getLights();
   }
+
+  addLight() {
+    this.lightService.addLight(new Light());
+    this.lights = this.lightService.getLights();
+  }
 }

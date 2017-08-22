@@ -17,6 +17,18 @@
       </tr>
       <tr>
         <td>
+          <md-input-container>
+            <input mdInput placeholder="X position" [(ngModel)]="light.left">
+          </md-input-container>
+        </td>
+        <td>
+          <md-input-container>
+            <input mdInput placeholder="Y position" [(ngModel)]="light.bottom">
+          </md-input-container>
+        </td>
+      </tr>
+      <tr>
+        <td>
           <button *ngIf="!light.isConnected" type="button" class="btn btn-success" (click)="onConnectClicked()">Connect</button>
           <button *ngIf="light.isConnected" type="button" class="btn btn-danger" (click)="onDisconnectClicked()">Disconnect</button>
         </td>

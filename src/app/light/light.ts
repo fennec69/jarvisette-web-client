@@ -5,5 +5,5 @@ export class Light {
   url = "ws://localhost:8080";
   inputUuid: string;
   bottom :string;
-  right :string;
+  left :string;
 }

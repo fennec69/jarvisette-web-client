@@ -1,7 +1,7 @@
 <md-card class="container primary-background">
   <div class="container primary-background">
-      <div *ngFor="let light of lights" class="anchor" [style.bottom]="light.bottom" [style.right]="light.right">
-        <light-output></light-output>
+      <div *ngFor="let light of lights" class="anchor" [style.bottom]="light.bottom" [style.left]="light.left">
+        <light-output [light]="light"></light-output>
       </div>
   </div>
 </md-card>
