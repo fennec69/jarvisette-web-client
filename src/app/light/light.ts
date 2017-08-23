@@ -4,6 +4,6 @@ export class Light {
   isConnected = false;
   url = "ws://localhost:8080";
   inputUuid: string;
-  bottom :string;
-  left :string;
+  y :number;
+  x :number;
 }

@@ -11,7 +11,7 @@ export class LightSettingsComponent {
   ws: WebSocket;
   @Input() light: Light;
 
-  constructor(public snackBar: MdSnackBar) {
+  constructor(public snackBar: MdSnackBar, private moduleService :ModuleService) {
   }
 
   onConnectClicked(): void {
@@ -46,13 +46,12 @@ export class LightSettingsComponent {
   }
 
   sendLocation() {
+    let locations = this.moduleService.getLightLocation(this.light);
+    console.log(locations);
     let locationCommand = {
       type: 'LOCATION',
       message: {
-        locations: {
-          test1: 10,
-          test2: 5
-        }
+        locations: locations
       }
     };
     this.ws.send(JSON.stringify(locationCommand));
@@ -67,6 +66,7 @@ export class LightSettingsComponent {
 }
 
 import {MdSnackBar} from "@angular/material";
+import {ModuleService} from "../module.service";
 
 export class LightInputMessageDto {
   action: string;

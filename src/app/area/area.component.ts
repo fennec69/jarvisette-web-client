@@ -16,7 +16,6 @@ export class AreaComponent {
 
   @Input() lights :Light[];
   @Input() micros :Micro[];
-
 }
 
 
